@@ -1,0 +1,10 @@
+name    'scottyc-kubernetes_docker'
+version '0.1.0'
+
+author 'scottyc'
+summary 'kubernetes_docker module'
+description 'kubernetes_docker module'
+project_page 'https://stash.healthdirect.org.au/projects/puppet/repos/scottyc-kubernetes_docker'
+
+# Add dependencies here, if any (NB: Must be in the form 'author/modulename')
+#dependency 'puppetlabs/stdlib', '>= 2.0.0'

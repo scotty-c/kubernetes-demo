@@ -1,0 +1,17 @@
+--- 
+- 
+  box: scottyc/centos-7-puppet-kernel-4-4
+  cpu: 2
+  ip: "172.17.9.101"
+  name: kubernetes-01
+  forward_ports:
+      - { guest: 80, host: 8080 }
+  ram: 4096
+  shell_commands: 
+      - { shell: 'systemctl stop firewalld && systemctl disable firewalld'}
+      - { shell: 'yum install -y wget git lvm2 device-mapper-libs' }
+      - { shell: 'echo -e "172.17.9.101 kubernetes-01">/etc/hosts'}
+      - { shell: '/opt/puppet/bin/gem install r10k && ln -s /opt/puppet/bin/r10k /usr/bin/r10k || true'}
+      - { shell: 'cp /home/vagrant/kubernetes-01/Puppetfile /tmp && cd /tmp && r10k puppetfile install --verbose' }
+      - { shell: 'cp /home/vagrant/kubernetes-01/modules/* -R /tmp/modules' }
+          
